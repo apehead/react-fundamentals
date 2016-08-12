@@ -10,3 +10,8 @@ export function toHex(c) {
 export function getHexColor({ red, green, blue }) {
   return `#${toHex(red)}${toHex(green)}${toHex(blue)}`;
 }
+
+export function setElementColor(element, color) {
+  const el = element;
+  el.style.backgroundColor = color;
+}

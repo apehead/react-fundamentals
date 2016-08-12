@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import ColorSelectorContainer from './ColorSelectorContainer';
-import { getRgbaColor } from '../helpers/color';
+import { getRgbaColor, setElementColor } from '../helpers/color';
 
 const RGB_COLOR_INITIAL_VALUE = 255;
 const RGB_ALPHA_INITIAL_VALUE = 1;
@@ -39,7 +39,7 @@ class App extends React.Component {
   apply() {
     const { red, green, blue, alpha } = this.state;
     const color = getRgbaColor({ red, green, blue, alpha });
-    document.body.style.backgroundColor = color;
+    setElementColor(document.body, color);
   }
 
   render() {
