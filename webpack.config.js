@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './sliderRGBA/main.js',
+  entry: './main.js',
   output: {
     path: './',
     filename: 'index.js'
