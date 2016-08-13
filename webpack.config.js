@@ -5,6 +5,7 @@ var WebpackBrowserPlugin = require('webpack-browser-plugin');
 var src = path.resolve('src');
 
 module.exports = {
+  devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:3333',
     'webpack/hot/only-dev-server',
@@ -12,6 +13,7 @@ module.exports = {
   ],
   output: {
     path: './',
+    pathinfo: true,
     filename: 'index.js'
   },
   devServer: {
@@ -33,7 +35,7 @@ module.exports = {
       },
       {
         test: /\.jsx?/,
-        exclude: /node_modules/,
+        include: src,
         loader: 'babel',
         query: {
           presets: ['es2015', 'react']
