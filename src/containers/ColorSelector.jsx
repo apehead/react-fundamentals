@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-import SliderRGBA from './SliderRGBA';
-import ColorDisplayRGBA from './ColorDisplayRGBA';
-import Button from './Button';
+import SliderRGBA from '../components//SliderRGBA';
+import ColorDisplayRGBA from '../components/ColorDisplayRGBA';
+import Button from '../components/Button';
 
 const ColorSelectorContainer = props => (
   <div data-role="color-selector-container">

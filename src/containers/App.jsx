@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import ColorSelectorContainer from './ColorSelectorContainer';
+import ColorSelector from './ColorSelector';
 import { getRgbaColor, setElementColor } from '../helpers/color';
 
 const RGB_COLOR_INITIAL_VALUE = 255;
@@ -48,7 +48,7 @@ class App extends React.Component {
         <h2>{this.props.message}</h2>
         <hr />
 
-        <ColorSelectorContainer
+        <ColorSelector
           red={this.state.red}
           green={this.state.green}
           blue={this.state.blue}
