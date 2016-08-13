@@ -1,7 +1,7 @@
 {
   "name": "react-fundamentals",
   "version": "1.0.0",
-  "description": "React Fundamentals",
+  "description": "React fundamentals examples",
   "engineStrict": true,
   "engines": {
     "node": ">=4.0.0"
