@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import Slider from './Slider';
+import NumInput from './NumInput';
 
 const COLOR_MIN = 0;
 const COLOR_MAX = 255;
@@ -27,54 +27,46 @@ class SliderRGBA extends React.Component {
     return (
       <div data-role="slider-rgba">
 
-        <div data-role="slider-rgba-red">
-          <Slider
-            min={COLOR_MIN}
-            max={COLOR_MAX}
-            value={this.props.red}
-            update={e => { this.handleChange(e, 'red'); }}
-          />
-          R: {this.props.red}
-        </div>
+        <NumInput
+          id="red"
+          min={COLOR_MIN}
+          max={COLOR_MAX}
+          type="range"
+          value={this.props.red}
+          label="Red"
+          update={e => { this.handleChange(e, 'red'); }}
+        />
 
-        <br />
+        <NumInput
+          id="green"
+          min={COLOR_MIN}
+          max={COLOR_MAX}
+          type="range"
+          value={this.props.green}
+          label="Green"
+          update={e => { this.handleChange(e, 'green'); }}
+        />
 
-        <div data-role="slider-rgba-green">
-          <Slider
-            min={COLOR_MIN}
-            max={COLOR_MAX}
-            value={this.props.green}
-            update={e => { this.handleChange(e, 'green'); }}
-          />
-          G: {this.props.green}
-        </div>
+        <NumInput
+          id="blue"
+          min={COLOR_MIN}
+          max={COLOR_MAX}
+          type="range"
+          value={this.props.blue}
+          label="Blue"
+          update={e => { this.handleChange(e, 'blue'); }}
+        />
 
-        <br />
-
-        <div data-role="slider-rgba-blue">
-          <Slider
-            min={COLOR_MIN}
-            max={COLOR_MAX}
-            value={this.props.blue}
-            update={e => { this.handleChange(e, 'blue'); }}
-          />
-          B: {this.props.blue}
-        </div>
-
-        <br />
-
-        <div data-role="slider-rgba-alpha">
-          <Slider
-            min={ALPHA_MIN}
-            max={ALPHA_MAX}
-            step={ALPHA_STEP}
-            value={this.props.alpha}
-            update={e => { this.handleChange(e, 'alpha'); }}
-          />
-          alpha: {this.props.alpha}
-        </div>
-
-        <br />
+        <NumInput
+          id="alpha"
+          min={ALPHA_MIN}
+          max={ALPHA_MAX}
+          step={ALPHA_STEP}
+          type="range"
+          value={this.props.alpha}
+          label="Alpha"
+          update={e => { this.handleChange(e, 'alpha'); }}
+        />
 
       </div>
     );
