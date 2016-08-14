@@ -5,7 +5,7 @@ var WebpackBrowserPlugin = require('webpack-browser-plugin');
 var src = path.resolve('src');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',,
+  devtool: 'cheap-module-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:3333',
     'webpack/hot/only-dev-server',
