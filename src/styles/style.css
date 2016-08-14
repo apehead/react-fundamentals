@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: monospace;;
+}
+
+header {
+  display: block;
+  overflow: auto;
+  background-color: pink;
+  padding: 1em;
+  color: red;
+  font-size: 1.2em;
+}
+
+.container {
+  height: 95vh;
+  display: flex;
+}
+
+pre {
+  background-color: #f8f8f8
+}
+
+pre, textarea {
+  width: 50%;
+  overflow: auto;
+  font-family: monospace;
+  margin: 0;
+  padding: 10px;
+  color: #222;
+  font-size: 1em;
+}
+
+textarea:focus {
+  outline: 0;
+}

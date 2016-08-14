@@ -1,10 +1,4 @@
-import React, { PropTypes } from 'react';
-
-import ColorSelector from './ColorSelector';
-import { getRgbaColor, setElementColor } from '../helpers/color';
-
-const RGB_COLOR_INITIAL_VALUE = 255;
-const RGB_ALPHA_INITIAL_VALUE = 1;
+import React from 'react';
 
 class App extends React.Component {
 
@@ -12,52 +6,50 @@ class App extends React.Component {
     super();
 
     this.state = {
-      red: RGB_COLOR_INITIAL_VALUE,
-      green: RGB_COLOR_INITIAL_VALUE,
-      blue: RGB_COLOR_INITIAL_VALUE,
-      alpha: RGB_ALPHA_INITIAL_VALUE
+      input: '/* Add your JSX here */',
+      output: '',
+      error: ''
     };
 
     this.update = this.update.bind(this);
-    this.reset = this.reset.bind(this);
-    this.apply = this.apply.bind(this);
   }
 
-  update(color, value) {
-    this.setState({ [color]: value });
+  update(event) {
+    const value = event.target.value;
+
+    try {
+      const output = babel.transform(value, {
+        stage: 0,
+        loose: 'all'
+      }).code;
+
+      this.setState({
+        output,
+        error: ''
+      });
+    } catch (error) {
+      this.setState({
+        output: '',
+        error: error.message
+      });
+    }
   }
 
-  reset() {
-    this.setState({
-      red: RGB_COLOR_INITIAL_VALUE,
-      green: RGB_COLOR_INITIAL_VALUE,
-      blue: RGB_COLOR_INITIAL_VALUE,
-      alpha: RGB_ALPHA_INITIAL_VALUE
-    }, this.apply);
-  }
-
-  apply() {
-    const { red, green, blue, alpha } = this.state;
-    const color = getRgbaColor({ red, green, blue, alpha });
-    setElementColor(document.body, color);
+  renderError() {
+    return this.state.error ? <header>{this.state.error}</header> : null;
   }
 
   render() {
     return (
       <section>
-        <h2>{this.props.message}</h2>
-        <hr />
-
-        <ColorSelector
-          red={this.state.red}
-          green={this.state.green}
-          blue={this.state.blue}
-          alpha={this.state.alpha}
-          update={this.update}
-          reset={this.reset}
-          apply={this.apply}
-        />
-
+        {this.renderError()}
+        <div className="container">
+          <textarea
+            onChange={this.update}
+            defaultValue={this.state.input}
+          />
+          <pre>{this.state.output}</pre>
+        </div>
       </section>
     );
   }
@@ -65,7 +57,6 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  message: PropTypes.string
 };
 
 export default App;

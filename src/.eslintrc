@@ -14,7 +14,9 @@
     "node": true
   },
 
-  "globals": {},
+  "globals": {
+    "babel": true
+  },
 
   "rules": {
     comma-dangle: ["error", "never"]
