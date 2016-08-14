@@ -20,8 +20,8 @@ module.exports = {
     port: 3333,
     inline: true,
     hot: true,
-    quiet: true,
-    noInfo: true
+    quiet: false,
+    noInfo: false
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
