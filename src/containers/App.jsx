@@ -23,7 +23,6 @@ const SpanMixed = Mixin(Span);
 
 const App = () => (
   <div>
-    asjals
     <ButtonMixed txt="Button" />
     <SpanMixed txt="Span" />
   </div>
